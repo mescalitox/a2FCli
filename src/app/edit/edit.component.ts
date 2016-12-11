@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
+  private user: any;
+
+  private title: string;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ui-button',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ui-button.component.css']
 })
 export class UiButtonComponent implements OnInit {
+
+  @Input() level: number;
+  @Input() icon: string;
 
   constructor() { }
 

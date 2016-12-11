@@ -1,3 +1,5 @@
-<p>
-  list-item works!
-</p>
+<a href="#" class="list-group-item active">
+  <h4 class="list-group-item-heading">{{item.id}} - {{item.name}}</h4>
+  <p class="list-group-item-text">{{item.codename}}</p>
+  <app-ui-button [level]="2" icon="edit">Edition</app-ui-button>
+</a>
