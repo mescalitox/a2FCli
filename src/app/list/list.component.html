@@ -1,0 +1,13 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{title}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+      <a href="#" class="list-group-item active" *ngFor="let item of listUsers">
+        <h4 class="list-group-item-heading">{{item.id}} - {{item.name}}</h4>
+        <p class="list-group-item-text">{{item.codename}}</p>
+      </a>
+    </div>
+  </div>
+</div>
