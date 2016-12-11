@@ -1,32 +1,45 @@
-import { User } from './user';
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { User } from './user';
+import './rxjs-operators';
+
+const API = 'http://localhost:3000/users'
 
 @Injectable()
 export class UserManagerService {
 
-  private users: User[] = [];
+  constructor(private http: Http) { }
 
-  constructor() {
+  public getUsers(): Promise<User[]> {
 
-    this.add("julien", "jaja");
-    // console.warn(this.users);
+    return this.http.get(API).toPromise()
+      .then(res => res.json())
+      .catch(this.handleError);
   }
 
+  private handleError(error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Promise.reject(errMsg);
+  }
+
+
   add(name, codename) {
-    let id = this.users.length + 1;
-    this.users.push(new User(id, name, codename))
+
   }
 
   remove() {
 
   }
 
-  public get $users(): User[] {
-    return this.users;
-  }
 
-  public set $users(value: User[]) {
-    this.users = value;
-  }
 
 }

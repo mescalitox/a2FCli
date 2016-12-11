@@ -11,11 +11,16 @@ export class ListComponent implements OnInit {
   private title: string;
 
   private listUsers: any[];
+  private errorMessage: string;
 
   constructor(private userManagerService: UserManagerService) {
     this.title = "liste utilisateurs";
-    this.listUsers = userManagerService.$users;
-    console.warn(this.listUsers);
+    userManagerService.getUsers().then(
+      users => { console.log(users); this.listUsers = users },
+      error => {
+        this.errorMessage = <any>error;
+        console.error(this.errorMessage)
+      });
   }
 
   ngOnInit() {
