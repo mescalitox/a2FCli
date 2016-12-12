@@ -1,7 +1,7 @@
 export class User {
-    private id: number;
-    private name: string;
-    private codename: string;
+    public id: number;
+    public name: string;
+    public codename: string;
 
     constructor($id: number, $name: string, $codename: string) {
         this.id = $id;

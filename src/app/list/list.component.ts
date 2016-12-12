@@ -10,20 +10,21 @@ export class ListComponent implements OnInit {
 
   private title: string;
 
-  private listUsers: any[];
+  private listItems: any[];
   private errorMessage: string;
+  private currentItem: any;
 
   constructor(private userManagerService: UserManagerService) {
     this.title = "liste utilisateurs";
-    userManagerService.getUsers().then(
-      users => { console.log(users); this.listUsers = users },
-      error => {
-        this.errorMessage = <any>error;
-        console.error(this.errorMessage)
-      });
+    this.listItems = userManagerService.users;
   }
 
   ngOnInit() {
+  }
+
+  select(item: any) {
+    this.currentItem = item;
+    this.userManagerService.selectUser(item);
   }
 
 }

@@ -34,23 +34,25 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 ## Todo
 
 * création components : 
-    * nav-bar ,
-    * List, 
+    * *nav-bar* ,
+    * *List*, 
     * edit, 
-    * list-item
+    * *list-item*
 
-* création dummy components : ui-panel, ui-button, 
+* *création dummy components : ui-panel, ui-button,*
 
-* création directive : ui-color
+* création directive : **ui-color**
 
-* création pipe : uppercase, search
+* création pipe : uppercase, **search**
 
-* création service : manager
+* *création service : manager*
 
-* création class user,
+* *création class user*,
 
-* selection user
+* *selection user*
 
-* item actif
+* *item actif*
 
-*formulaire
+* formulaire
+
+* 

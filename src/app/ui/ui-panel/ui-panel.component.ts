@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ui-panel',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ui-panel.component.css']
 })
 export class UiPanelComponent implements OnInit {
+
+  @Input() divided: boolean = false;
 
   constructor() { }
 

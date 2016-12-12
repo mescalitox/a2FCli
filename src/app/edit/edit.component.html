@@ -1,13 +1,18 @@
-<app-ui-panel>
-  <span class="ui-title">{{title}}</span>
+<app-ui-panel *ngIf="item != null" [divided]="true">
+  <span class="ui-title">{{itemInitial.id}} - {{itemInitial.name}}</span>
   <div class="list-group ui-body">
+    <pre>{{item | json}}</pre>
     <form action="" method="POST" role="form">
-      <legend>Form title</legend>
+      <legend>Edition</legend>
       <div class="form-group">
-        <label for="">label</label>
-        <input type="text" class="form-control" id="" placeholder="Input field">
+        <label for="name">Name</label>
+        <input required type="text" class="form-control" id="name" name="name" placeholder="Saisir le name" [(ngModel)]="item.name">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <label for="codename">codename</label>
+        <input required type="text" class="form-control" id="codename" name="codename" placeholder="Saisir le codename" [(ngModel)]="item.codename">
+      </div>
+      <app-ui-button level="0" icon="ok">Valider</app-ui-button>
     </form>
   </div>
 </app-ui-panel>
