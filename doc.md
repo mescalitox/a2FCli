@@ -47,6 +47,7 @@
 *   [maxlab](http://maxlab.fr/category/veille/)
 *   [meanjs](http://www.meanjs.fr/)
 *   [putaindecode](http://putaindecode.io/fr/)
+*   [scotch](https://scotch.io/)
 
 ## ReactJS
 *   [différences entre FWK](http://putaindecode.io/fr/articles/js/react/)
