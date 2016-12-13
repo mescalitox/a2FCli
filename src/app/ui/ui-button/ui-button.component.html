@@ -1,6 +1,6 @@
-<div class="btn" [class.btn-primary]="level == 0" [class.btn-success]="level == 1" [class.btn-danger]="level == 2">
+<button class="btn" [class.btn-primary]="level == 0" [class.btn-success]="level == 1" [class.btn-danger]="level == 2" [disabled]="disabled">
   <i class="glyphicon glyphicon-{{icon}}"></i>
   <span>
     <ng-content></ng-content>
   </span>
-</div>
+</button>

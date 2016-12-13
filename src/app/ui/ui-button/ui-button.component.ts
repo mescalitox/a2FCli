@@ -11,6 +11,7 @@ export class UiButtonComponent implements OnInit {
 
   @Input() level: number;
   @Input() icon: string;
+  @Input() disabled: boolean = false;
 
   // private levelClass: string;
 

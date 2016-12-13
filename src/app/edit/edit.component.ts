@@ -23,7 +23,11 @@ export class EditComponent implements OnInit {
             this.item = Object.assign({}, user)
             console.warn(this.item);
         });
+    }
 
+    //réinitialiser le user
+    reset() {
+        this.item = Object.assign({}, this.itemInitial);
     }
 
     ngOnInit() {

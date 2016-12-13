@@ -1,22 +1,25 @@
-<app-ui-panel *ngIf="item != null" [divided]="true">
-  <span class="ui-title">{{itemInitial.id}} - {{itemInitial.name}}</span>
+<app-ui-panel *ngIf="item" [divided]="true">
+  <span class="ui-title">Edition</span>
   <div class="list-group ui-body">
     <pre>{{item | json}}</pre>
-    <form action="" method="POST" role="form">
-      <legend>Edition</legend>
+    <form action="" method="POST" role="form" #formEdit="ngForm">
+      <legend>{{itemInitial.id}} - {{itemInitial.name}}</legend>
       <div class="form-group">
         <label for="name">Name</label>
         <input required type="text" class="form-control" id="name" name="name" placeholder="Saisir le name" [(ngModel)]="item.name"
           minlength="3" maxlength="10" #name="ngModel">
-        <br>TODO: remove this: {{name.className}}* {{name.dirty}}* {{name.invalid}}*
         <div class="alert alert-danger" [hidden]="name.pristine || name.valid">Obligatoire et 3 à 10 caractères</div>
       </div>
       <div class="form-group">
         <label for="codename">codename</label>
         <input required type="text" class="form-control" id="codename" name="codename" placeholder="Saisir le codename" [(ngModel)]="item.codename"
           #codename="ngModel">
+        <div class="alert alert-danger" [hidden]="codename.pristine || codename.valid">Obligatoire</div>
       </div>
-      <app-ui-button level="0" icon="ok">Valider</app-ui-button>
+      <img *ngIf="codename.valid" src="http://robohash.org/{{item.codename}}" class="circle " width="150 " height="150 ">
+      <hr>
+      <app-ui-button level="0" icon="retweet" (click)="reset();">Reset</app-ui-button>
+      <app-ui-button level="0" icon="ok" [disabled]="formEdit.invalid">Valider</app-ui-button>
     </form>
   </div>
 </app-ui-panel>
