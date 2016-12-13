@@ -65,4 +65,10 @@
 ## autre
 *   require JS pour optimiser chargement js [requireJS](http://requirejs.org/)
 
-
+## VScode extension
+*   angular 2 typescript emmet
+*   angular 2 Typescript snippets
+*   auto import
+*   beautify
+*   bootstrap 3 snippets
+*   typescript toolbox
