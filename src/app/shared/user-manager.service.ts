@@ -21,13 +21,62 @@ export class UserManagerService extends EventEmitter<any> {
     this.emit(user);
   }
 
-  add(name, codename) {
-
-  }
-
   remove() {
 
   }
+
+  // savePromise(user: User):Promise<User> {
+  //   return new Promise<User>(resolve => {
+  //       //user existant
+  //       if (user.id) {
+  //         this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
+  //           .then(res => {
+  //             //remplacement dans la liste
+  //             this.users.splice(this.users.findIndex(u => u.id === user.id), 1, user);
+  //             return user;
+  //           });
+  //       }
+  //       //nouvel user
+  //       else {
+  //         this.http.post(API, { "name": user.name, "codename": user.codename }).toPromise()
+  //           .then(res => {
+  //             let newUser = res.json();
+  //             console.log(newUser);
+  //             //ajout dans la liste
+  //             this.users.push(newUser);
+  //             return newUser;
+  //           });
+  //       }
+  //   });
+  // }
+
+
+  save(user: User) {
+    //user existant
+    if (user.id) {
+      this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
+        .then(res => {
+          //remplacement dans la liste
+          this.users.splice(this.users.findIndex(u => u.id === user.id), 1, user);
+          //émission de l'event de sélection
+          this.emit(user);
+        });
+    }
+    //nouvel user
+    else {
+      this.http.post(API, { "name": user.name, "codename": user.codename }).toPromise()
+        .then(res => {
+          let newUser = res.json();
+          console.log(newUser);
+          //ajout dans la liste
+          this.users.push(newUser);
+          //émission de l'event de sélection
+          this.emit(newUser);
+        });
+    }
+  }
+
+
 
   // public getUsers(): Promise<User[]> {
   //   return this.http.get(API).toPromise()
