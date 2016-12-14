@@ -2,13 +2,13 @@
   <span class="ui-title">Edition</span>
   <div class="list-group ui-body">
     <pre>{{item | json}}</pre>
-    <form action="" method="POST" role="form" #formEdit="ngForm">
+    <form #formEdit="ngForm" (ngSubmit)="onSubmit()">
       <legend>{{itemInitial.id}} - {{itemInitial.name}}</legend>
       <div class="form-group">
         <label for="name">Name</label>
         <input required type="text" class="form-control" id="name" name="name" placeholder="Saisir le name" [(ngModel)]="item.name"
-          minlength="3" maxlength="10" #name="ngModel">
-        <div class="alert alert-danger" [hidden]="name.pristine || name.valid">Obligatoire et 3 à 10 caractères</div>
+          #name="ngModel" pattern=".{3,10}">
+        <div class="alert alert-danger" [hidden]="name.pristine || name.valid">3 à 10 caractères</div>
       </div>
       <div class="form-group">
         <label for="codename">codename</label>
@@ -16,10 +16,16 @@
           #codename="ngModel">
         <div class="alert alert-danger" [hidden]="codename.pristine || codename.valid">Obligatoire</div>
       </div>
-      <img *ngIf="codename.valid" src="http://robohash.org/{{item.codename}}" class="circle " width="150 " height="150 ">
+      <img [hidden]="codename.invalid" src="http://robohash.org/{{item.codename}}" class="circle " width="150 " height="150 ">
       <hr>
-      <app-ui-button level="0" icon="retweet" (click)="reset();">Reset</app-ui-button>
-      <app-ui-button level="0" icon="ok" [disabled]="formEdit.invalid">Valider</app-ui-button>
+      <button type="button" class="btn btn-primary" (click)="onReset() ; formEdit.form.markAsPristine()" [disabled]="formEdit.pristine">
+         <i class="glyphicon glyphicon-retweet"></i>
+        <span>Réinitialiser</span>
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="formEdit.form.invalid">
+         <i class="glyphicon glyphicon-ok"></i>
+         <span>Valider</span>
+      </button>
     </form>
   </div>
 </app-ui-panel>

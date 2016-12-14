@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { UserManagerService } from './../shared/user-manager.service';
 
@@ -15,6 +15,8 @@ export class EditComponent implements OnInit {
 
     private itemInitial: any;
 
+    @Output() jobResult: EventEmitter<string> = new EventEmitter<string>();
+
     constructor(private userManagerService: UserManagerService) {
 
         //souscription à l'émission de l'évenement de user manager qui est la sélection du user
@@ -26,9 +28,20 @@ export class EditComponent implements OnInit {
     }
 
     //réinitialiser le user
-    reset() {
+    onReset() {
         this.item = Object.assign({}, this.itemInitial);
+        console.warn("reset");
     }
+
+    test() {
+        console.warn("test");
+    }
+
+    onSubmit() {
+        console.warn("submit");
+        this.jobResult.emit("done");
+    }
+
 
     ngOnInit() {
     }
