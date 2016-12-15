@@ -1,9 +1,9 @@
-<app-ui-panel *ngIf="item" [divided]="true">
+<app-ui-panel *ngIf="itemInitial" [divided]="true">
   <span class="ui-title">Edition</span>
   <div class="list-group ui-body">
     <pre>{{item | json}}</pre>
     <form #formEdit="ngForm" (ngSubmit)="onSubmit(formEdit)">
-      <legend>{{itemInitial.id}} - {{itemInitial.name}}</legend>
+      <legend *ngIf="itemInitial.id">{{itemInitial.id}} - {{itemInitial.name}}</legend>
       <div class="form-group">
         <label for="name">Name</label>
         <input required type="text" class="form-control" id="name" name="name" placeholder="Saisir le name" [(ngModel)]="item.name"

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserManagerService } from './../../shared/user-manager.service';
 
 @Component({
   selector: 'app-list-item',
@@ -9,9 +10,18 @@ export class ListItemComponent implements OnInit {
 
   @Input() item: any;
   @Input() active: boolean;
-  constructor() { }
+
+  constructor(private userManagerService: UserManagerService) { }
 
   ngOnInit() {
+  }
+
+  onRemove(item) {
+    this.userManagerService.remove(item).then(user => {
+      console.warn("delete effectué");
+      console.warn(user);
+    })
+    console.warn("delete");
   }
 
 }

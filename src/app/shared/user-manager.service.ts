@@ -11,6 +11,7 @@ export class UserManagerService extends EventEmitter<any> {
   public users: User[] = [];
 
   public editDoneEvent: EventEmitter<any> = new EventEmitter<any>();
+  public removeDoneEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: Http) {
     super();
@@ -23,19 +24,29 @@ export class UserManagerService extends EventEmitter<any> {
     this.emit(user);
   }
 
-  remove() {
-
+  //suppression
+  remove(userASupprimer: User): Promise<User> {
+    return this.http.delete(`${API}/${userASupprimer.id}`).toPromise().then(res => {
+      let supprUser = res.json();
+      //suppression dans la liste
+      this.users.splice(this.users.findIndex(u => u.id === userASupprimer.id), 1);
+      //emission de l'event de job done pour alerter les components qui souhaiteraient être informés. (préférable de lancer l'event par l'appelant ?)
+      this.removeDoneEvent.emit(userASupprimer);
+      //renvoi du user à supprimer (le supprimé est vide)
+      return userASupprimer
+    });
   }
 
+  //ajout ou modif
   save(user: User): Promise<User> {
     //user existant
     if (user.id) {
-      return this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
+      return this.http.put(`${API}/${user.id}`, { "name": user.name, "codename": user.codename }).toPromise()
         .then(res => {
           let majUser = res.json();
           //remplacement dans la liste
           this.users.splice(this.users.findIndex(u => u.id === majUser.id), 1, majUser);
-          //émission de l'event de job done pour les components qui souhaiteraient être informés.
+          //émission de l'event de job done pour les components qui souhaiteraient être informés. (préférable de lancer l'event par l'appelant ?)
           this.editDoneEvent.emit(majUser);
           //renvoi du user modifié
           return majUser;

@@ -15,15 +15,30 @@ export class ListComponent implements OnInit {
   private currentItem: any;
 
   constructor(private userManagerService: UserManagerService) {
-    this.title = "liste utilisateurs";
+    this.title = "Liste utilisateurs";
     this.listItems = userManagerService.users;
+    //souscription à l'event du job d'édition terminé
     userManagerService.editDoneEvent.subscribe(user => {
       console.warn("event edit done levé")
       if (user) {
-        //positionnement sur le user 
-        this.currentItem = this.listItems.find(item => item.id === user.id);
+        //positionnement sur le user (utile lors de création)
+        let futureCurrentUser = this.listItems.find(item => item.id === user.id);
+        //relance de la sélection pour renvoyer le user sélectionné (utile car le form edit est reset())
+        this.select(futureCurrentUser);
       }
     })
+    //souscription à l'event du job de suppression terminé
+    userManagerService.removeDoneEvent.subscribe(user => {
+      console.warn("event remove done levé")
+      //si l'item sélectionné est le user supprimé
+      console.log(user);
+      if (this.currentItem && this.currentItem.id === user.id) {
+        //annulation de la sélection
+        this.select(null);
+      }
+
+    });
+
   }
 
   ngOnInit() {

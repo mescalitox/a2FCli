@@ -11,9 +11,9 @@
       "id": 2
     },
     {
-      "id": 3,
       "name": "Julien",
-      "codename": "Jaja"
+      "codename": "Jaja",
+      "id": 3
     },
     {
       "id": 4,
@@ -51,9 +51,9 @@
       "codename": "Gwen"
     },
     {
-      "id": 11,
       "name": "Johann",
-      "codename": "Jo"
+      "codename": "Jo",
+      "id": 11
     },
     {
       "id": 12,
@@ -61,72 +61,14 @@
       "codename": "freezeburger"
     },
     {
-      "name": "Test",
-      "codename": "test1",
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "name": "Test",
-      "codename": "nouveau code",
-      "id": 15
-    },
-    {
-      "name": "test n",
-      "codename": "test c",
-      "id": 16
-    },
-    {
-      "name": "name1",
-      "codename": "code1",
-      "id": 17
-    },
-    {
-      "name": "Laurent",
-      "codename": "Tracker2",
-      "id": 18
-    },
-    {
-      "name": "testN",
-      "codename": "testC",
-      "id": 19
-    },
-    {
       "id": 20,
       "name": "Mohamed",
       "codename": "Momo"
     },
     {
-      "name": "new1",
-      "codename": "newc1",
+      "name": "Test",
+      "codename": "test",
       "id": 21
-    },
-    {
-      "name": "new2",
-      "codename": "newc2",
-      "id": 22
-    },
-    {
-      "name": "new4",
-      "codename": "newc4",
-      "id": 23
-    },
-    {
-      "name": "Laurent1",
-      "codename": "Tracker",
-      "id": 24
-    },
-    {
-      "name": "Laurent1",
-      "codename": "Tracker",
-      "id": 25
-    },
-    {
-      "name": "Nicolas",
-      "codename": "Nicolas",
-      "id": 26
     }
   ]
 }
