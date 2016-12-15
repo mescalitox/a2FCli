@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { UserManagerService } from './../shared/user-manager.service';
 
@@ -21,8 +22,7 @@ export class EditComponent implements OnInit {
         userManagerService.subscribe(user => {
             this.itemInitial = user;
             this.item = Object.assign({}, user)
-            console.log("event reçu");
-            console.warn(this.item);
+            console.warn("selection levé par edit");
         });
     }
 
@@ -32,9 +32,15 @@ export class EditComponent implements OnInit {
         console.warn("reset");
     }
 
-    onSubmit() {
-        this.userManagerService.save(this.item);
-        console.warn("submit");
+    onSubmit(formEdit: NgForm) {
+        this.userManagerService.save(this.item).then(user => {
+            //action sur la résolution de la promise
+            console.warn("submit effectué");
+            console.warn(user);
+        });
+        //initialisation du form
+        formEdit.resetForm();
+        console.warn("submit lancé");
     }
 
 

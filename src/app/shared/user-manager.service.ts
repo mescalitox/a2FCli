@@ -10,6 +10,8 @@ export class UserManagerService extends EventEmitter<any> {
 
   public users: User[] = [];
 
+  public editDoneEvent: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private http: Http) {
     super();
     this.http.get(API).toPromise()
@@ -25,56 +27,53 @@ export class UserManagerService extends EventEmitter<any> {
 
   }
 
-  // savePromise(user: User):Promise<User> {
-  //   return new Promise<User>(resolve => {
-  //       //user existant
-  //       if (user.id) {
-  //         this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
-  //           .then(res => {
-  //             //remplacement dans la liste
-  //             this.users.splice(this.users.findIndex(u => u.id === user.id), 1, user);
-  //             return user;
-  //           });
-  //       }
-  //       //nouvel user
-  //       else {
-  //         this.http.post(API, { "name": user.name, "codename": user.codename }).toPromise()
-  //           .then(res => {
-  //             let newUser = res.json();
-  //             console.log(newUser);
-  //             //ajout dans la liste
-  //             this.users.push(newUser);
-  //             return newUser;
-  //           });
-  //       }
-  //   });
-  // }
-
-
-  save(user: User) {
+  save(user: User): Promise<User> {
     //user existant
     if (user.id) {
-      this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
+      return this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
         .then(res => {
+          let majUser = res.json();
           //remplacement dans la liste
-          this.users.splice(this.users.findIndex(u => u.id === user.id), 1, user);
-          //émission de l'event de sélection
-          this.emit(user);
+          this.users.splice(this.users.findIndex(u => u.id === majUser.id), 1, majUser);
+          //émission de l'event de job done pour les components qui souhaiteraient être informés.
+          this.editDoneEvent.emit(majUser);
+          //renvoi du user modifié
+          return majUser;
         });
     }
     //nouvel user
     else {
-      this.http.post(API, { "name": user.name, "codename": user.codename }).toPromise()
+      return this.http.post(API, { "name": user.name, "codename": user.codename }).toPromise()
         .then(res => {
           let newUser = res.json();
           console.log(newUser);
           //ajout dans la liste
           this.users.push(newUser);
-          //émission de l'event de sélection
-          this.emit(newUser);
+          //émission de l'event de job done pour les components qui souhaiteraient être informés.
+          this.editDoneEvent.emit(newUser);
+          //renvoi du user créé
+          return newUser;
         });
     }
   }
+
+
+  // saveP1(user: User): Promise<User> {
+  //   return this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()
+  //     .then(res => {
+  //       let majUser = res.json();
+  //       //remplacement dans la liste
+  //       this.users.splice(this.users.findIndex(u => u.id === majUser.id), 1, majUser);
+
+  //       //émission de l'event de job done pour les components qui souhaiteraient être informés.
+  //       this.editDoneEvent.emit(majUser);
+
+  //       //renvoi du user modifié
+  //       return majUser;
+  //     });
+  // }
+
+
 
 
 

@@ -2,7 +2,7 @@
   <span class="ui-title">Edition</span>
   <div class="list-group ui-body">
     <pre>{{item | json}}</pre>
-    <form #formEdit="ngForm" (ngSubmit)="onSubmit()">
+    <form #formEdit="ngForm" (ngSubmit)="onSubmit(formEdit)">
       <legend>{{itemInitial.id}} - {{itemInitial.name}}</legend>
       <div class="form-group">
         <label for="name">Name</label>
@@ -18,7 +18,7 @@
       </div>
       <img [hidden]="codename.invalid" src="http://robohash.org/{{item.codename}}" class="circle " width="150 " height="150 ">
       <hr>
-      <button type="button" class="btn btn-primary" (click)="onReset() ; formEdit.form.markAsPristine()" [disabled]="formEdit.pristine">
+      <button type="button" class="btn btn-primary" (click)="onReset(formEdit) ; formEdit.form.markAsPristine()" [disabled]="formEdit.pristine">
          <i class="glyphicon glyphicon-retweet"></i>
         <span>Réinitialiser</span>
       </button>

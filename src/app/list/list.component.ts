@@ -17,6 +17,13 @@ export class ListComponent implements OnInit {
   constructor(private userManagerService: UserManagerService) {
     this.title = "liste utilisateurs";
     this.listItems = userManagerService.users;
+    userManagerService.editDoneEvent.subscribe(user => {
+      console.warn("event edit done levé")
+      if (user) {
+        //positionnement sur le user 
+        this.currentItem = this.listItems.find(item => item.id === user.id);
+      }
+    })
   }
 
   ngOnInit() {
