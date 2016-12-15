@@ -39,7 +39,7 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 * création components : 
     * *nav-bar* ,
     * *List*, 
-    * edit, 
+    * *edit*, 
     * *list-item*
 
 * *création dummy components : ui-panel, ui-button,*
@@ -56,6 +56,8 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 * *item actif*
 
-* formulaire 
+* *formulaire*
 
-* ui: input ?
+* *suppression*
+
+*  popup confirm ?

@@ -14,6 +14,7 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 
 import { UserManagerService } from './shared/user-manager.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UiConfirmComponent } from './ui/ui-confirm/ui-confirm.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     UiButtonComponent,
     SearchPipe,
     ListItemComponent,
-    NavBarComponent
+    NavBarComponent,
+    UiConfirmComponent
   ],
   imports: [
     BrowserModule,
