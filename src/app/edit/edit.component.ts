@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
 
     constructor(private userManagerService: UserManagerService) {
 
+
         //souscription à l'émission de l'évenement de user manager qui est la sélection du user : comme un input
         userManagerService.subscribe(user => {
             console.warn("selection levé par edit");
