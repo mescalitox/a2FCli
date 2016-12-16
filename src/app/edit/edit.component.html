@@ -1,5 +1,5 @@
 <app-ui-panel *ngIf="itemInitial" [divided]="true">
-  <span class="ui-title">Edition</span>
+  <span class="ui-title"><span id="edit-component">Edition</span></span>
   <div class="list-group ui-body">
     <pre>{{item | json}}</pre>
     <form #formEdit="ngForm" (ngSubmit)="onSubmit(formEdit)">

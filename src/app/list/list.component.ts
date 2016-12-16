@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
 
   constructor(private userManagerService: UserManagerService) {
     this.title = "Liste utilisateurs";
+    //directement la référence du service : pas de futur get
     this.listItems = userManagerService.users;
     //souscription à l'event du job d'édition terminé
     userManagerService.editDoneEvent.subscribe(user => {
