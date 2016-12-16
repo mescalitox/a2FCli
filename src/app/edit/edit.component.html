@@ -22,7 +22,7 @@
          <i class="glyphicon glyphicon-retweet"></i>
         <span>Réinitialiser</span>
       </button>
-      <button type="submit" class="btn btn-primary" [disabled]="formEdit.form.invalid">
+      <button type="submit" class="btn btn-primary" [disabled]="formEdit.form.invalid" (click)="formEdit.form.markAsPristine()">
          <i class="glyphicon glyphicon-ok"></i>
          <span>Valider</span>
       </button>

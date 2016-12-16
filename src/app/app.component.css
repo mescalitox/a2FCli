@@ -1,0 +1,29 @@
+@keyframes spinner {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+#stage {
+  width: 110px;
+  display: inline-block;
+  perspective: 120px;
+  background: #1976D2;
+  border-radius: 5px;
+}
+
+#spinner {
+  animation-name: spinner;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  transform-style: preserve-3d;
+  text-align: center;
+}
+
+#spinner:hover {
+  animation-play-state: paused;
+}

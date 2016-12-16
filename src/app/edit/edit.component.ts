@@ -16,7 +16,7 @@ export class EditComponent implements OnInit {
 
     constructor(private userManagerService: UserManagerService) {
 
-        //souscription à l'émission de l'évenement de user manager qui est la sélection du user
+        //souscription à l'émission de l'évenement de user manager qui est la sélection du user : comme un input
         userManagerService.subscribe(user => {
             console.warn("selection levé par edit");
             console.warn(user);
@@ -41,7 +41,8 @@ export class EditComponent implements OnInit {
             console.warn(user);
         });
         //initialisation du form
-        formEdit.resetForm();
+        // formEdit.form.markAsPristine();
+        //formEdit.resetForm();
         console.warn("submit lancé");
     }
 

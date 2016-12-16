@@ -60,6 +60,7 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 * *suppression*
 
-*  popup confirm ?
+*  *popup confirm ?*
 
-* bug : changement de sélection : form non reset
+* bug : changement de sélection : form non reset... essai sur elementRef >ko, renderer >ko, 
+https://angular.io/docs/ts/latest/api/core/index/ChangeDetectorRef-class.html#!#detectChanges-anchor
