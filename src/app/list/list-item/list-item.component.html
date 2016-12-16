@@ -3,6 +3,8 @@
     <h4 class="list-group-item-heading">
       <span>{{item.id}} - {{item.name}}</span>
       <button type="button" class="btn btn-danger btn-suppression" title="Supprimer l'utilisateur {{item.name}}" (click)="onRemove(item); $event.stopPropagation()">x</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-danger btn-suppression" onclick="$('#myModal').modal()" (click)="selectToRemove(item);  $event.stopPropagation() ">x</button>
     </h4>
     <p class="list-group-item-text">{{item.codename}}</p>
   </a>

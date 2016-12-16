@@ -4,7 +4,10 @@
     <div class="list-group">
       <button type="button" class="btn btn-primary" (click)="select({})">Créer un nouvel utilisateur</button>
     </div>
-    <app-list-item *ngFor="let item of listItems" [item]="item" [active]="currentItem && item.id === currentItem.id" (click)="select(item)"></app-list-item>
+    <app-list-item *ngFor="let item of listItems" [item]="item" [active]="currentItem && item.id === currentItem.id" (click)="select(item)"
+      (clickToRemove)="onClickToRemove($event)"></app-list-item>
   </div>
 </app-ui-panel>
-<app-ui-confirm (confirm)="onRemove($event)"></app-ui-confirm>
+<app-ui-confirm (confirm)="onRemove($event)" title="Suppression">
+  Confirmez-vous la suppression de l'utilisateur : {{currentItemToRemove.name}} ?
+</app-ui-confirm>

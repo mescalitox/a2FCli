@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ui-confirm',
@@ -7,7 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class UiConfirmComponent implements OnInit {
 
-  @Output() confirm: EventEmitter<any> = new EventEmitter<any>();
+  @Input() title: string;
+  @Output() confirm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -15,7 +16,11 @@ export class UiConfirmComponent implements OnInit {
   }
 
   onConfirm() {
-    this.confirm.emit('done');
+    this.confirm.emit(true);
+  }
+
+  onCancel() {
+    this.confirm.emit(false);
   }
 
 }

@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
   private listItems: any[];
   private errorMessage: string;
   private currentItem: any;
+  private currentItemToRemove: any = {};
 
   constructor(private userManagerService: UserManagerService) {
     this.title = "Liste utilisateurs";
@@ -47,6 +48,21 @@ export class ListComponent implements OnInit {
   select(item: any) {
     this.currentItem = item;
     this.userManagerService.selectUser(item);
+  }
+
+  onClickToRemove(item: any) {
+    this.currentItemToRemove = item;
+  }
+
+  onRemove(confirm: boolean) {
+    console.warn(confirm)
+    if (confirm) {
+      this.userManagerService.remove(this.currentItemToRemove).then(user => {
+        console.warn("delete effectué");
+        console.warn(user);
+      })
+      console.warn("delete");
+    }
   }
 
 }

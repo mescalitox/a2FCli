@@ -14,6 +14,9 @@
 *   [différence entre promise et observable](http://www.meanjs.fr/differences-entre-observable-et-promise/)
 *   [MDN promise](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise)
 
+## ng2 infos
+*   [forms template driven / model driven](http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/)
+
 ## Git 
 
 ### Git scm

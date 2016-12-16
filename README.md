@@ -61,3 +61,5 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 * *suppression*
 
 *  popup confirm ?
+
+* bug : changement de sélection : form non reset

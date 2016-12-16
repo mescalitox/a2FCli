@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserManagerService } from './../../shared/user-manager.service';
 
 @Component({
@@ -10,18 +10,24 @@ export class ListItemComponent implements OnInit {
 
   @Input() item: any;
   @Input() active: boolean;
+  @Output() clickToRemove: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private userManagerService: UserManagerService) { }
 
   ngOnInit() {
   }
 
-  onRemove(item) {
-    this.userManagerService.remove(item).then(user => {
-      console.warn("delete effectué");
-      console.warn(user);
-    })
-    console.warn("delete");
+  // remove sans modal : modal est dans la liste
+  //  onRemove(item) {
+  //   this.userManagerService.remove(item).then(user => {
+  //     console.warn("delete effectué");
+  //     console.warn(user);
+  //   })
+  //   console.warn("delete");
+  // }
+
+  selectToRemove(item) {
+    this.clickToRemove.emit(item);
   }
 
 }

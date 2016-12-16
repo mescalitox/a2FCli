@@ -18,7 +18,7 @@
       </div>
       <img [hidden]="codename.invalid" src="http://robohash.org/{{item.codename}}" class="circle " width="150 " height="150 ">
       <hr>
-      <button type="button" class="btn btn-primary" (click)="onReset(formEdit) ; formEdit.form.markAsPristine()" [disabled]="formEdit.pristine">
+      <button type="button" class="btn btn-default" (click)="onReset(formEdit) ; formEdit.form.markAsPristine()" [disabled]="formEdit.pristine">
          <i class="glyphicon glyphicon-retweet"></i>
         <span>Réinitialiser</span>
       </button>
