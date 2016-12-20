@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { UserManagerService } from './../shared/user-manager.service';
@@ -8,8 +8,9 @@ import { UserManagerService } from './../shared/user-manager.service';
     templateUrl: './edit.component.html',
     styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit, OnChanges {
 
+    @Input()
     private item: any;
 
     private itemInitial: any;
@@ -49,6 +50,11 @@ export class EditComponent implements OnInit {
 
 
     ngOnInit() {
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        console.warn(changes);
+        console.log(changes['item'].currentValue);
     }
 
 }

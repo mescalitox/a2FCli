@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { UserManagerService } from './../../shared/user-manager.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserManagerService } from './../../shared/user-manager.service';
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ListItemComponent implements OnInit, OnChanges {
 
   @Input() item: any;
   @Input() active: boolean;
@@ -28,6 +28,11 @@ export class ListItemComponent implements OnInit {
 
   selectToRemove(item) {
     this.clickToRemove.emit(item);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // console.warn(changes);
+    // console.log(changes['item'].currentValue);
   }
 
 }
