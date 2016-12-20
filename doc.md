@@ -16,6 +16,7 @@
 
 ## ng2 infos
 *   [forms template driven / model driven](http://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/)
+*   [change detection](http://juristr.com/blog/2016/04/angular2-change-detection/)
 
 ## Git 
 

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 
 import { UserManagerService } from './../shared/user-manager.service';
 
@@ -11,6 +12,8 @@ import { UserManagerService } from './../shared/user-manager.service';
 export class EditComponent implements OnInit, OnChanges {
 
     @Input()
+    private itemO: EventEmitter<any>;
+
     private item: any;
 
     private itemInitial: any;
@@ -19,7 +22,7 @@ export class EditComponent implements OnInit, OnChanges {
 
 
         //souscription à l'émission de l'évenement de user manager qui est la sélection du user : comme un input
-        userManagerService.subscribe(user => {
+        userManagerService.selectEvent.subscribe(user => {
             console.warn("selection levé par edit");
             console.warn(user);
             this.itemInitial = user;
@@ -53,8 +56,15 @@ export class EditComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        console.warn(changes);
-        console.log(changes['item'].currentValue);
+        console.warn("changes");
+        // console.warn(changes);
+        // console.log(changes['itemO'].currentValue);
+        // console.log(this.itemO);
+        // this.itemInitial = this.itemO;
+        // //copie de l'objet manipulé
+        // if (this.itemO != null) {
+        //     this.item = Object.assign({}, this.itemO)
+        // }
     }
 
 }

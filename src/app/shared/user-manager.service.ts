@@ -6,22 +6,22 @@ import './rxjs-operators';
 const API = 'http://localhost:3000/users'
 
 @Injectable()
-export class UserManagerService extends EventEmitter<any> {
+export class UserManagerService {
 
   public users: User[] = [];
 
   public editDoneEvent: EventEmitter<any> = new EventEmitter<any>();
   public removeDoneEvent: EventEmitter<any> = new EventEmitter<any>();
+  public selectEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: Http) {
-    super();
     this.http.get(API).toPromise()
       .then(res => this.users.push(...res.json()))
       .catch(error => console.error(error.message));
   }
 
   selectUser(user) {
-    this.emit(user);
+    this.selectEvent.emit(user);
   }
 
   //suppression
