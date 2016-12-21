@@ -68,7 +68,7 @@ export class UserManagerService {
     }
   }
 
-  //save avec data sans id
+  //save avec data sans id .
   save2(idUser: number, majData: any): Promise<User> {
     //user existant    
     if (idUser != null) {
