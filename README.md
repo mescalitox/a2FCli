@@ -64,3 +64,23 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 * bug : changement de sélection : form non reset... essai sur elementRef >ko, renderer >ko, 
 https://angular.io/docs/ts/latest/api/core/index/ChangeDetectorRef-class.html#!#detectChanges-anchor
+    * mode no-tree (event subscribed in constructor) ou tree (input)
+    * solution : accentuer le mode tree pour masquer depuis le parent le component à réactualiser ex dans a2CliTplDrv avec :
+        passage intermédiaire avec le détail
+```html
+
+<app-edit-item [item]="currentEditedItem" *ngIf="currentEditedItem" (onClickCancel)="onCancel($event)"></app-edit-item>
+<app-detail-item *ngIf="currentItem && currentEditedItem == null" [item]="currentItem" (onClickEdit)="onEdit($event)" (onClickRemove)="onRemove($event)"></app-detail-item>
+<app-ui-panel>
+  <span class="ui-title">{{title}}</span>
+  <div class="ui-body">
+    <app-list-item *ngFor="let item of listItems" [item]="item" [isActive]="item === currentItem" (click)="onSelect(item)"></app-list-item>
+  </div>
+</app-ui-panel>
+
+```
+    * solution !! utiliser FormGroup méthode reactive form / model driven form, pour effectuer un reset sur ngOnChanges() (en mode tree)
+
+
+* bug (click) sur ui-button déclenché meme si disabled... et hors padding
+
