@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
       if (user) {
         //positionnement sur le user (utile lors de création)
         let futureCurrentUser = this.listItems.find(item => item.id === user.id);
-        //relance de la sélection pour renvoyer le user sélectionné (utile car le form edit est reset())
+        //relance de la sélection pour renvoyer le user sélectionné (utile si nouvel user)
         this.select(futureCurrentUser);
       }
     })

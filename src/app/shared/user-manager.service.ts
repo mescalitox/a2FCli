@@ -68,6 +68,36 @@ export class UserManagerService {
     }
   }
 
+  //save avec data sans id
+  save2(idUser: number, majData: any): Promise<User> {
+    //user existant    
+    if (idUser != null) {
+      return this.http.put(`${API}/${idUser}`, majData).toPromise()
+        .then(res => {
+          let majUser = res.json();
+          //remplacement dans la liste
+          this.users.splice(this.users.findIndex(u => u.id === majUser.id), 1, majUser);
+          //émission de l'event de job done pour les components qui souhaiteraient être informés.
+          this.editDoneEvent.emit(majUser);
+          //renvoi du user modifié
+          return majUser;
+        });
+    }//nouvel user
+    else {
+      return this.http.post(API, majData).toPromise()
+        .then(res => {
+          let newUser = res.json();
+          console.log(newUser);
+          //ajout dans la liste
+          this.users.push(newUser);
+          //émission de l'event de job done pour les components qui souhaiteraient être informés.
+          this.editDoneEvent.emit(newUser);
+          //renvoi du user créé
+          return newUser;
+        });
+    }
+  }
+
 
   // saveP1(user: User): Promise<User> {
   //   return this.http.put(API + "/" + user.id, { "name": user.name, "codename": user.codename }).toPromise()

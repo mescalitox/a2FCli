@@ -1,7 +1,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { UserManagerService } from './shared/user-manager.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UiConfirmComponent } from './ui/ui-confirm/ui-confirm.component';
+import { EditRfComponent } from './edit-rf/edit-rf.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,13 @@ import { UiConfirmComponent } from './ui/ui-confirm/ui-confirm.component';
     SearchPipe,
     ListItemComponent,
     NavBarComponent,
-    UiConfirmComponent
+    UiConfirmComponent,
+    EditRfComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [UserManagerService],

@@ -1,0 +1,28 @@
+<p>
+  edit-rf works!
+</p>
+<app-ui-panel *ngIf="item" [divided]="true">
+  <span class="ui-title"><span id="edit-component">Edition</span></span>
+  <div class="list-group ui-body">
+    <pre>{{item | json}}</pre>
+    <form [formGroup]="formEdit" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" placeholder="Saisie du nom" id="name" formControlName="name">
+        <div class="alert alert-danger" *ngIf="formEdit.get('name').hasError('required') && formEdit.get('name').touched">Obligatoire</div>
+      </div>
+      <div class="form-group">
+        <label for="codename">Codename</label>
+        <input type="text" class="form-control" placeholder="Saisie du nom code" id="codename" formControlName="codename">
+        <div class="alert alert-danger" *ngIf="formEdit.get('codename').hasError('required') && formEdit.get('codename').touched">Obligatoire</div>
+        <div class="alert alert-danger" *ngIf="formEdit.get('codename').hasError('minlength') && formEdit.get('codename').touched">Minimum 3 caractères</div>
+      </div>
+      <pre>{{formEdit.errors | json}}</pre>
+      <pre>{{formEdit.value | json}}</pre>
+      <div class="alert alert-danger" *ngIf="formEdit.hasError('identiques')">Name et code name doivent être différents</div>
+      <!--<div class="alert alert-danger" [hidden]="formEdit.validator.get('specialValidator').valid">Obligatoire</div>-->
+      <button [disabled]="formEdit.pristine" class="btn btn-default" (click)="onCancel()">Annuler</button>
+      <button type="submit" [disabled]="!formEdit.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</app-ui-panel>
