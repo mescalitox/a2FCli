@@ -16,6 +16,7 @@ import { UserManagerService } from './shared/user-manager.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UiConfirmComponent } from './ui/ui-confirm/ui-confirm.component';
 import { EditRfComponent } from './edit-rf/edit-rf.component';
+import { UiColorDirective } from './ui/ui-color.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditRfComponent } from './edit-rf/edit-rf.component';
     ListItemComponent,
     NavBarComponent,
     UiConfirmComponent,
-    EditRfComponent
+    EditRfComponent,
+    UiColorDirective
   ],
   imports: [
     BrowserModule,
