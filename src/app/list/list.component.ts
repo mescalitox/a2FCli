@@ -9,7 +9,7 @@ import { UserManagerService } from './../shared/user-manager.service';
 export class ListComponent implements OnInit {
 
   private title: string;
-
+  private searchValue: string;
   private listItems: any[];
   private errorMessage: string;
   private currentItem: any;

@@ -5,8 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
+  transform(userCollection: any, str?: any): any {
+    if (str) return userCollection.filter(
+      u => String(u.name).startsWith(str)
+        || String(u.codename).startsWith(str)
+    );
+    return userCollection;
   }
 
 }
