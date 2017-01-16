@@ -42,6 +42,10 @@
 *   [GitH](https://github.com/angular/angular-cli/blob/master/README.md)
 *   [intro](https://www.cedriclegallo.fr/posts/201606/introduction-a-angular-cli-pour-angular2/)
 
+## projets intéressants 
+
+*   [starters reddit post](https://www.reddit.com/r/Angular2/comments/5fzdz3/helpful_github_repos_curated_through_december_2016/)
+
 ## Typescript
 *   [transpillation JS](http://www.typescriptlang.org/play/)
 *   [pourquoi utiliser TS ?](http://tarh.developpez.com/articles/typescript/pourquoi-utiliser-typescript/)
