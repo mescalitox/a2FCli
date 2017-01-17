@@ -20,7 +20,7 @@
 
 ## Model driven forms
 *   [form group and form controls](https://scotch.io/tutorials/using-angular-2s-model-driven-forms-with-formgroup-and-formcontrol)
-*   [ng2 doc formgroup](https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html)
+*   custom validation : [ng2 doc formgroup](https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html)
 *   [model driven](https://toddmotto.com/angular-2-forms-reactive)
 
 ## Git 
