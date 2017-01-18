@@ -47,14 +47,19 @@
 *   [starters reddit post](https://www.reddit.com/r/Angular2/comments/5fzdz3/helpful_github_repos_curated_through_december_2016/)
 
 ## Typescript
+    interface, génériques, typage, décorateur
 *   [transpillation JS](http://www.typescriptlang.org/play/)
 *   [pourquoi utiliser TS ?](http://tarh.developpez.com/articles/typescript/pourquoi-utiliser-typescript/)
 *   [types github *.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped)
 
-## ES6
+## ES6 2015
+    import, classes, map, set, let, promise, arrow function, quote
 *   [doc livre](http://exploringjs.com/es6/index.html#toc_ch_modules)
 *   [map set](http://www.2ality.com/2015/01/es6-maps-sets.html)
 *   [notions](https://www.wanadev.fr/21-introduction-a-ecmascript-6-le-javascript-de-demain/)
+
+## ES7 ? 2017
+    decorateur, async function, observable 
 
 ## Veille
 *   [maxlab](http://maxlab.fr/category/veille/)
