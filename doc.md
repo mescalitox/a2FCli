@@ -41,6 +41,7 @@
 *   [cli](https://cli.angular.io/)
 *   [GitH](https://github.com/angular/angular-cli/blob/master/README.md)
 *   [intro](https://www.cedriclegallo.fr/posts/201606/introduction-a-angular-cli-pour-angular2/)
+*   [reference](https://www.sitepoint.com/ultimate-angular-cli-reference/?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more)
 
 ## projets intéressants 
 
@@ -48,7 +49,7 @@
 *   [pipes ngx-](https://github.com/danrevah/ngx-pipes)
 *   [top 10 tuto](https://medium.mybridge.co/angular-2-0-top-10-for-the-past-year-v-2017-6c024c33ff7e#.jvws8wizn)
 *   [rxjs](https://netbasal.com/rxjs-six-operators-that-you-must-know-5ed3b6e238a0#.dc6u8u4ja)
-*   [12 apps to build](https://medium.com/@markhilfenus/learn-angular-2-development-by-building-12-apps-8950cec3cc80#.dws8cvngt)
+
 
 ## Typescript
     interface, génériques, typage, décorateur
